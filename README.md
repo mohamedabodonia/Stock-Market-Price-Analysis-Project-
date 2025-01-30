@@ -41,6 +41,7 @@ import pyspark
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("StockAnalysis").getOrCreate()
 ```
+<img src="https://github.com/mohamedabodonia/Stock-Market-Price-Analysis-Project-/blob/main/DataBricks/Read%20Source%20file.jpeg?raw=true">
 
 **Reading data file**
 
@@ -66,6 +67,7 @@ stock.filter(stock.Ticker == "MSFT").show(5)
 ```python
 stock.filter((stock.Ticker.isin(["AMZN","MSFT"]))&(stock.Date=="2023-05-31")).show()
 ```
+<img src="https://github.com/mohamedabodonia/Stock-Market-Price-Analysis-Project-/blob/main/DataBricks/filteration.jpeg?raw=true">
 
 **making transformation on close/open/high/low column to delete "$" symbol from this column**
 
@@ -99,6 +101,9 @@ import pyspark.sql.functions as func
 # maximum value in each stock
 cleaned_stock.groupBy("Ticker").agg(func.max("Open").alias("MAXSTOCK")).show()
 ```
+<img src="https://github.com/mohamedabodonia/Stock-Market-Price-Analysis-Project-/blob/main/DataBricks/Maximum%20price.jpeg?raw=true
+">
+
 
 **Get the total volume value for each stock**
 
@@ -111,12 +116,16 @@ cleaned_stock.groupBy("Ticker").agg(func.sum("Volume").alias("Totalvolume")).sho
 ```python
 cleaned_stock=cleaned_stock.withColumn("year",func.year("Date")).withColumn("month",func.month("Date")).withColumn("day",func.dayofmonth("Date"))
 ```
+<img src="https://github.com/mohamedabodonia/Stock-Market-Price-Analysis-Project-/blob/main/DataBricks/extract%20year%20month%20day%20from%20date%20column.jpeg?raw=true">
+
+
 
 **calcualte the maximum and minimum value for each Ticker per YEAR**
 
 ```python
 cleaned_stock.groupBy("Ticker","year").agg(func.max("Open").alias("yearlyhigh"),func.min("open").alias("lowyear")).show()
 ```
+
 **calcualte the maximum and minimum value for each Ticker per month**
 
 ```python
