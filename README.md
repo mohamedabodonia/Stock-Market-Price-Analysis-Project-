@@ -163,3 +163,20 @@ snapshot.withColumn("previousopen",func.lag("Open",1).over(lag1day)).show(50)
 ```python
 cleaned_stock.write.mode("overwrite").option("header", "true").csv("/mnt/data/stock_prices")
 ```
+
+
+
+
+
+# 📊 Key Insights Extracted:
+
+**1-Top 5 stocks with the highest average closing prices.jpeg**
+
+<img src="https://github.com/mohamedabodonia/Stock-Market-Price-Analysis-Project-/blob/main/Insights/top%205%20stocks%20with%20the%20highest%20average%20closing%20prices.jpeg?raw=true">
+
+**2-Find the Stock with the Highest Price.jpeg**
+
+<img src="https://github.com/mohamedabodonia/Stock-Market-Price-Analysis-Project-/blob/main/Insights/Find%20the%20Stock%20with%20the%20Highest%20Price.jpeg?raw=true">
+
+**3-Most Traded Stock**
+<img src="https://github.com/mohamedabodonia/Stock-Market-Price-Analysis-Project-/blob/main/Insights/Most%20Traded%20Stock.jpeg?raw=true">
